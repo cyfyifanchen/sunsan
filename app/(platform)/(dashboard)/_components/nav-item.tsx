@@ -108,6 +108,7 @@ export const NavItem = ({
   )
 }
 
+// This part is cool, no longer need to width each skeleton
 NavItem.Skeleton = function SkeletonNavItem() {
   return (
     <div className="flex items-center gap-x-2">
