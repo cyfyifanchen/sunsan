@@ -7,6 +7,7 @@ import Image from 'next/image'
 import { useEffect, useState } from 'react'
 import { useFormStatus } from 'react-dom'
 import { defaultImages } from '@/constants/images'
+import Link from 'next/link'
 interface FormPickerProps {
   id: string
   errors?: Record<string, string[] | undefined>
@@ -73,6 +74,13 @@ export const FormPicker = ({ id, errors }: FormPickerProps) => {
               alt="Unsplash images"
               className="object-cover rounded-sm"
             />
+            <Link
+              target="_blank"
+              className="opacity-0 group-hover:opacity-100 absolute bottom-0 w-full text-[10px] truncate text-white hover:underline p-1 bg-black/50"
+              href={image.links.html}
+            >
+              {image.user.name}
+            </Link>
           </div>
         ))}
       </div>
