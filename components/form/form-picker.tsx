@@ -2,7 +2,7 @@
 
 import { unsplash } from '@/lib/unsplash'
 import { cn } from '@/lib/utils'
-import { Loader2 } from 'lucide-react'
+import { Check, Loader2 } from 'lucide-react'
 import Image from 'next/image'
 import { useEffect, useState } from 'react'
 import { useFormStatus } from 'react-dom'
@@ -25,7 +25,8 @@ export const FormPicker = ({ id, errors }: FormPickerProps) => {
       try {
         const res = await unsplash.photos.getRandom({
           // this number is a collection of images, can be changed to reference other albums
-          collectionIds: ['317099'],
+          collectionIds: ['317010'],
+          // collectionIds: ['317099'],
           count: 9,
         })
 
@@ -74,6 +75,11 @@ export const FormPicker = ({ id, errors }: FormPickerProps) => {
               alt="Unsplash images"
               className="object-cover rounded-sm"
             />
+            {selectedImageId === image.id && (
+              <div className="absolute inset-y-0 h-full w-full bg-black/30 flex items-center justify-center">
+                <Check className="h-4 w-4 text-white" />
+              </div>
+            )}
             <Link
               target="_blank"
               className="opacity-0 group-hover:opacity-100 absolute bottom-0 w-full text-[10px] truncate text-white hover:underline p-1 bg-black/50"
