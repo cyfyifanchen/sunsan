@@ -11,7 +11,7 @@ import { createBoard } from '@/actions/create-board'
 
 import { FormInput } from './form-input'
 import { FormSubmit } from './form-submit'
-import { Button } from '../ui/button'
+import { Button } from '@/components/ui/button'
 import { X } from 'lucide-react'
 
 interface FormPopoverProps {
@@ -47,6 +47,16 @@ export const FormPopover = ({
             <X className="h-4 w-4" />
           </Button>
         </PopoverClose>
+        <form className="space-y-4">
+          <div className="space-y-4">
+            <FormInput
+              id="title"
+              label="Board title"
+              type="text"
+            />
+          </div>
+          <FormSubmit className="w-full">Create</FormSubmit>
+        </form>
       </PopoverContent>
     </Popover>
   )
