@@ -1,4 +1,3 @@
-import { ActionState } from './create-safe-action'
 /**
  * TypeScript code from file create-safe-action.ts
  *
