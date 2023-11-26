@@ -8,5 +8,5 @@ interface ListOptionsProps {
 }
 
 export const ListOptions = ({ data, onAddCard }: ListOptionsProps) => {
-  return <div className="">List Options.</div>
+  return <div className="">List Options</div>
 }
