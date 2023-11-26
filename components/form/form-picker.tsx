@@ -26,8 +26,8 @@ export const FormPicker = ({ id, errors }: FormPickerProps) => {
       try {
         const res = await unsplash.photos.getRandom({
           // this number is a collection of images, can be changed to reference other albums
-          collectionIds: ['317010'],
-          // collectionIds: ['317099'],
+          collectionIds: ['317099'],
+          // collectionIds: ['317010'],
           count: 9,
         })
 
