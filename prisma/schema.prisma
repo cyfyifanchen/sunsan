@@ -20,7 +20,7 @@ model Board {
   imageFullUrl String @db.Text
   imageUserName String @db.Text
   imageLinkHTML String @db.Text
-  list List[]
+  lists List[]
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
@@ -33,7 +33,7 @@ model List {
   // Delete a board, the list will also be deleted hince Cascading
   board Board @relation(fields: [boardId], references: [id], onDelete: Cascade)
 
-  card Card[]
+  cards Card[]
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt()
@@ -48,6 +48,7 @@ model Card {
   description String? @db.Text
 
   listId String
+  // Delete a list, the Card will also be deleted hince Cascading
   list List @relation(fields: [listId], references: [id], onDelete: Cascade)
 
   createdAt DateTime @default(now())
