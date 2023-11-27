@@ -4,7 +4,7 @@ import { ListWithCards } from '@/type'
 import { ListForm } from './list-form'
 import { useEffect, useState } from 'react'
 import { ListItem } from './list-item'
-import { DragDropContext, Droppable, draggableProps } from '@hello-pangea/dnd'
+import { DragDropContext, Droppable } from '@hello-pangea/dnd'
 
 interface ListContainerProps {
   data: ListWithCards[]
@@ -27,7 +27,7 @@ export const ListContainer = ({ data, boardId }: ListContainerProps) => {
       >
         {(provided) => (
           <ol
-            {...provided.draggableProps}
+            {...provided.droppableProps}
             ref={provided.innerRef}
             className="flex gap-x-3 h-full"
           >
