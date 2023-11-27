@@ -9,6 +9,7 @@ import { useAction } from '@/hooks/use-action'
 import { updateListOrder } from '@/actions/update-list-order'
 import { updateCardOrder } from '@/actions/update-card-order'
 import { toast } from 'sonner'
+import { LampDesk } from 'lucide-react'
 
 interface ListContainerProps {
   data: ListWithCards[]
@@ -139,6 +140,10 @@ export const ListContainer = ({ data, boardId }: ListContainerProps) => {
         })
 
         setOrderedData(newOrderedData)
+        executeUpdateCardOrder({
+          boardId: boardId,
+          items: destList.cards,
+        })
       }
     }
   }
