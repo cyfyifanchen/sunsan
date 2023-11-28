@@ -19,7 +19,7 @@ export const Navbar = () => {
             size="sm"
             asChild
           >
-            <Link href="/sign-up">Get Sunsan for free</Link>
+            <Link href="/sign-up">Sign up</Link>
           </Button>
         </div>
       </div>
