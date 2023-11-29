@@ -11,7 +11,12 @@ export async function GET(
     const { userId, orgId } = auth()
 
     if (!userId || !orgId) {
-      return new NextResponse('Unauthorized', { status: 401 })
+      return new NextResponse(
+        'Unauthorized, failed to Auth on GET activities',
+        {
+          status: 401,
+        }
+      )
     }
 
     const auditLog = await db.auditLog.findMany({
@@ -23,11 +28,13 @@ export async function GET(
       orderBy: {
         createdAt: 'desc',
       },
-      take: 3,
+      take: 5,
     })
 
     return NextResponse.json(auditLog)
   } catch (error) {
-    return new NextResponse('Internal Error', { status: 500 })
+    return new NextResponse('Internal Error, failed to GET activities', {
+      status: 500,
+    })
   }
 }

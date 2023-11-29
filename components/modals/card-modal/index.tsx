@@ -1,13 +1,11 @@
 'use client'
 
 import { useQuery } from '@tanstack/react-query'
-
 import { CardWithList } from '@/type'
 import { fetcher } from '@/lib/fetcher'
 import { AuditLog } from '@prisma/client'
 import { useCardModal } from '@/hooks/use-card-modal'
 import { Dialog, DialogContent } from '@/components/ui/dialog'
-
 import { Header } from './header'
 import { Description } from './description'
 import { Actions } from './actions'
