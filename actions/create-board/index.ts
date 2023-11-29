@@ -8,6 +8,7 @@ import { revalidatePath } from 'next/cache'
 import { createSafeAction } from '@/lib/create-safe-action'
 import { createAuditLog } from '@/lib/create-audit-log'
 import { ACTION, ENTITY_TYPE } from '@prisma/client'
+import { hasAvailableCount, incrementAvailableCount } from '@/lib/org-limit'
 
 const handler = async (data: InputType): Promise<ReturnType> => {
   const { userId, orgId } = auth()
@@ -15,6 +16,14 @@ const handler = async (data: InputType): Promise<ReturnType> => {
   if (!userId || !orgId) {
     return {
       error: 'Unauthorized',
+    }
+  }
+
+  const canCreate = await hasAvailableCount()
+
+  if (!canCreate) {
+    return {
+      error: 'You have reached your limits of free boards.',
     }
   }
 
@@ -56,6 +65,8 @@ const handler = async (data: InputType): Promise<ReturnType> => {
         imageUserName,
       },
     })
+
+    await incrementAvailableCount()
 
     await createAuditLog({
       entityId: board.id,
