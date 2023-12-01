@@ -1,5 +1,5 @@
-import CampaignOnePage from './_campaigns/campaign-one'
-import CampaignTwoPage from './_campaigns/campaign-two'
+import CampaignOnePage from './_components/_campaigns/campaign-one'
+import CampaignTwoPage from './_components/_campaigns/campaign-two'
 
 const MarketingPage = () => {
   return <CampaignOnePage />
