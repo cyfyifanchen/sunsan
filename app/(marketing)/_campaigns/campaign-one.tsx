@@ -23,7 +23,7 @@ const CampaignOnePage = () => {
         <h1 className="text-4xl md:text-6xl text-center text-neutral-800 mb-6">
           Sunsan
         </h1>
-        <div className="border drop-shadow-sm">
+        <div className="drop-shadow-lg">
           <Image
             alt="hero"
             width={800}
