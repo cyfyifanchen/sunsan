@@ -4,7 +4,7 @@ import { cn } from '@/lib/utils'
 import Image from 'next/image'
 
 const headingFont = localFont({
-  src: '../../../public/fonts/font.woff2',
+  src: '../../../../public/fonts/font.woff2',
 })
 
 const CampaignOnePage = () => {
